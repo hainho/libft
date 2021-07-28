@@ -6,7 +6,7 @@
 /*   By: iha <iha@student.42.kr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 23:41:29 by iha               #+#    #+#             */
-/*   Updated: 2021/06/27 18:38:14 by iha              ###   ########.fr       */
+/*   Updated: 2021/07/28 16:38:57 by iha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 static int	ft_isspace(const char c)
 {
 	if (c == '\t' || c == '\f' || c == '\r'
-			|| c == '\v' || c == '\n' || c == ' ')
+		|| c == '\v' || c == '\n' || c == ' ')
 		return (1);
 	else
 		return (0);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned long long	n;
 	int					sign;

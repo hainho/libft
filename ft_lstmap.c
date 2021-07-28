@@ -6,7 +6,7 @@
 /*   By: iha <iha@student.42.kr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 09:34:50 by iha               #+#    #+#             */
-/*   Updated: 2021/05/25 15:30:27 by iha              ###   ########.fr       */
+/*   Updated: 2021/07/28 16:16:19 by iha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	tl = 0;
 	while (lst)
 	{
-		if (!(temp = ft_lstnew((*f)(lst->content))))
+		temp = ft_lstnew((*f)(lst->content));
+		if (temp == NULL)
 		{
 			ft_lstclear(&tl, del);
-			return (0);
+			return (NULL);
 		}
 		ft_lstadd_back(&tl, temp);
 		temp = temp->next;

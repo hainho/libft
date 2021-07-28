@@ -6,7 +6,7 @@
 /*   By: iha <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 23:43:06 by iha               #+#    #+#             */
-/*   Updated: 2021/05/19 23:43:07 by iha              ###   ########.fr       */
+/*   Updated: 2021/07/28 16:29:28 by iha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	*ft_calloc(size_t count, size_t size)
 	unsigned int	n;
 
 	n = count * size;
-	if (!(dst = malloc(n)))
-		return (0);
+	dst = malloc(n);
+	if (dst == NULL)
+		return (NULL);
 	ft_bzero(dst, n);
 	return (dst);
 }

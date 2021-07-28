@@ -6,7 +6,7 @@
 /*   By: iha <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 23:48:31 by iha               #+#    #+#             */
-/*   Updated: 2021/05/19 23:48:32 by iha              ###   ########.fr       */
+/*   Updated: 2021/07/28 16:10:00 by iha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_rec_itoa(long long n, int fd)
 	}
 }
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	long long	m;
 

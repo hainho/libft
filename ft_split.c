@@ -6,13 +6,13 @@
 /*   By: iha <iha@student.42.kr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 23:48:51 by iha               #+#    #+#             */
-/*   Updated: 2021/06/27 17:40:17 by iha              ###   ########.fr       */
+/*   Updated: 2021/07/28 16:22:05 by iha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	splitfree(char **sp)
+static char	*splitfree(char **sp)
 {
 	while (*sp)
 	{
@@ -21,6 +21,7 @@ static void	splitfree(char **sp)
 	}
 	free(sp);
 	sp = 0;
+	return (NULL);
 }
 
 static char	*nextstr(char *s, char c)
@@ -55,13 +56,14 @@ static char	*splitstr(char *s, char c)
 	while (*temp != c && *temp)
 		temp++;
 	size = temp - s;
-	if (!(dst = ft_substr(s, 0, size + 1)))
-		return (0);
+	dst = ft_substr(s, 0, size + 1);
+	if (dst == NULL)
+		return (NULL);
 	dst[size] = 0;
 	return (dst);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**sp;
 	char	**temp;
@@ -69,23 +71,22 @@ char		**ft_split(char const *s, char c)
 	int		size;
 
 	cur = (char *)s;
-	if (s == 0)
-		return (0);
+	if (s == NULL)
+		return (NULL);
 	while (*cur == c && *cur)
 		cur++;
 	size = splitlen(cur, c);
-	if (!(sp = ft_calloc((size + 1), sizeof(char *))))
-		return (0);
+	sp = ft_calloc((size + 1), sizeof(char *));
+	if (sp == NULL)
+		return (NULL);
 	temp = sp;
 	while (*cur)
 	{
-		if (!(*temp++ = splitstr(cur, c)))
-		{
-			splitfree(sp);
-			return (0);
-		}
+		*temp = splitstr(cur, c);
+		if (*temp++ == NULL)
+			return (splitfree(sp));
 		cur = nextstr(cur, c);
 	}
-	*temp = 0;
+	*temp = NULL;
 	return (sp);
 }

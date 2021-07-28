@@ -6,7 +6,7 @@
 /*   By: iha <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 23:45:25 by iha               #+#    #+#             */
-/*   Updated: 2021/05/19 23:58:07 by iha              ###   ########.fr       */
+/*   Updated: 2021/07/28 16:40:39 by iha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	*ft_rec_itoa(long long n, char *dst)
 	return (dst + 1);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char			*dst;
 	char			*temp;
@@ -52,8 +52,9 @@ char		*ft_itoa(int n)
 	size = ft_itoasize(n);
 	if (n < 0)
 		m *= -1;
-	if (!(dst = malloc(size + 1)))
-		return (0);
+	dst = malloc(size + 1);
+	if (dst == NULL)
+		return (NULL);
 	temp = dst;
 	if (n < 0)
 		*dst++ = '-';

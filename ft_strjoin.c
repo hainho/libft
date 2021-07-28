@@ -6,7 +6,7 @@
 /*   By: iha <iha@student.42.kr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 23:49:32 by iha               #+#    #+#             */
-/*   Updated: 2021/05/25 17:48:08 by iha              ###   ########.fr       */
+/*   Updated: 2021/07/28 16:12:59 by iha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*temp;
 	int		n;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	n = ft_strlen(s1) + ft_strlen(s2) + 1;
-	if (!(dst = (char *)malloc(n * sizeof(char))))
-		return (0);
+	dst = (char *)malloc(n * sizeof(char));
+	if (dst == NULL)
+		return (NULL);
 	temp = dst;
 	while (*s1)
 		*temp++ = *s1++;
