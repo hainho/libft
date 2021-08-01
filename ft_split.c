@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char	*splitfree(char **sp)
+static char	**splitfree(char **sp)
 {
 	while (*sp)
 	{
